@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strings"
 	"time"
 )
 
@@ -23,18 +22,18 @@ func main() {
 		for i := range password {
 			password[i] = charset[rand.Intn(len(charset))]
 		}
-		fmt.Println(string(password))
-		
+		fmt.Printf("%s\n", password)
+
 		fmt.Println("Do you want to generate another password? [Y/N]")
 		var input string
 		fmt.Scanln(&input)
-		input = strings.ToLower(input)
-		if input == "y" {
-			fmt.Println("Enther the length of password: ")
-			fmt.Scanln(&length)
 
-		} else {
+		if input != "y" && input != "Y" {
 			return
-		}
+		} 
+
+		fmt.Println("Enther the length of password: ")
+		fmt.Scanln(&length)
+
 	}
 }
